@@ -10,6 +10,7 @@ import Foundation
 @Observable
 class ModelData {
     var facilities: [Facility] = load("facilityData.json")
+    var rooms: [Room] = load("homeData.json")
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

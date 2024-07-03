@@ -18,7 +18,7 @@ struct ToggleButton: View {
                    Label("Turn On", systemImage: isSet ? "checkmark.square" : "square")
                        .labelStyle(.iconOnly)
                        .foregroundStyle(isSet ? .green : .gray)
-               }
+               } 
     }
 }
 

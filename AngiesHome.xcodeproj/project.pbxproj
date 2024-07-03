@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		660628562C32FAC700E36B9A /* FilteredRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660628552C32FAC700E36B9A /* FilteredRoom.swift */; };
+		660628572C32FAC700E36B9A /* FilteredRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660628552C32FAC700E36B9A /* FilteredRoom.swift */; };
+		660628582C32FAC700E36B9A /* FilteredRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660628552C32FAC700E36B9A /* FilteredRoom.swift */; };
+		665E11232C3597BC00976DA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E11222C3597BC00976DA5 /* HomeView.swift */; };
+		665E11242C3597BC00976DA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E11222C3597BC00976DA5 /* HomeView.swift */; };
+		665E11252C3597BC00976DA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E11222C3597BC00976DA5 /* HomeView.swift */; };
+		665E112B2C359BBD00976DA5 /* homeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 665E112A2C359BBD00976DA5 /* homeData.json */; };
+		665E112C2C359BBD00976DA5 /* homeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 665E112A2C359BBD00976DA5 /* homeData.json */; };
+		665E112D2C359BBD00976DA5 /* homeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 665E112A2C359BBD00976DA5 /* homeData.json */; };
 		6669F6372C19EF8B00BC7951 /* AngiesHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6669F6362C19EF8B00BC7951 /* AngiesHomeApp.swift */; };
 		6669F6392C19EF8B00BC7951 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6669F6382C19EF8B00BC7951 /* ContentView.swift */; };
 		6669F63B2C19EF8D00BC7951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6669F63A2C19EF8D00BC7951 /* Assets.xcassets */; };
@@ -43,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		660628552C32FAC700E36B9A /* FilteredRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredRoom.swift; sourceTree = "<group>"; };
+		665E11222C3597BC00976DA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		665E112A2C359BBD00976DA5 /* homeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeData.json; sourceTree = "<group>"; };
 		6669F6332C19EF8B00BC7951 /* AngiesHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngiesHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6669F6362C19EF8B00BC7951 /* AngiesHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngiesHomeApp.swift; sourceTree = "<group>"; };
 		6669F6382C19EF8B00BC7951 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,7 +71,7 @@
 		6669F6692C19F32700BC7951 /* FacilityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityRow.swift; sourceTree = "<group>"; };
 		6669F66E2C19F6D500BC7951 /* facilityData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = facilityData.json; path = ../../../../Downloads/BuildingListsAndNavigation/Complete/Landmarks/Resources/facilityData.json; sourceTree = "<group>"; };
 		6669F6712C1B293500BC7951 /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
-		6669F6772C1B319600BC7951 /* FacilityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityList.swift; sourceTree = "<group>"; };
+		6669F6772C1B319600BC7951 /* FacilityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityList.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		6669F6792C1B373700BC7951 /* FacilityDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDetail.swift; sourceTree = "<group>"; };
 		6669F67B2C20820900BC7951 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +172,7 @@
 		6669F66B2C19F5D800BC7951 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				665E112A2C359BBD00976DA5 /* homeData.json */,
 				6669F66E2C19F6D500BC7951 /* facilityData.json */,
 			);
 			path = Resources;
@@ -169,7 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				6669F6382C19EF8B00BC7951 /* ContentView.swift */,
+				665E11222C3597BC00976DA5 /* HomeView.swift */,
 				6669F6772C1B319600BC7951 /* FacilityList.swift */,
+				660628552C32FAC700E36B9A /* FilteredRoom.swift */,
 				6669F6692C19F32700BC7951 /* FacilityRow.swift */,
 				6669F6792C1B373700BC7951 /* FacilityDetail.swift */,
 			);
@@ -290,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665E112B2C359BBD00976DA5 /* homeData.json in Resources */,
 				6669F66F2C19F6D600BC7951 /* facilityData.json in Resources */,
 				6669F63E2C19EF8D00BC7951 /* Preview Assets.xcassets in Resources */,
 				6669F63B2C19EF8D00BC7951 /* Assets.xcassets in Resources */,
@@ -300,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665E112C2C359BBD00976DA5 /* homeData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665E112D2C359BBD00976DA5 /* homeData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,12 +337,14 @@
 			files = (
 				6669F6392C19EF8B00BC7951 /* ContentView.swift in Sources */,
 				6669F6682C19F2E100BC7951 /* MapView.swift in Sources */,
+				660628562C32FAC700E36B9A /* FilteredRoom.swift in Sources */,
 				6669F6372C19EF8B00BC7951 /* AngiesHomeApp.swift in Sources */,
 				6669F6612C19F1A900BC7951 /* ModelData.swift in Sources */,
 				6669F66A2C19F32700BC7951 /* FacilityRow.swift in Sources */,
 				6669F67A2C1B373700BC7951 /* FacilityDetail.swift in Sources */,
 				6669F6722C1B293500BC7951 /* Facility.swift in Sources */,
 				6669F6782C1B319600BC7951 /* FacilityList.swift in Sources */,
+				665E11232C3597BC00976DA5 /* HomeView.swift in Sources */,
 				6669F6662C19F2D200BC7951 /* CircleImage.swift in Sources */,
 				6669F67C2C20820900BC7951 /* ToggleButton.swift in Sources */,
 			);
@@ -334,7 +354,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665E11242C3597BC00976DA5 /* HomeView.swift in Sources */,
 				6669F6482C19EF8D00BC7951 /* AngiesHomeTests.swift in Sources */,
+				660628572C32FAC700E36B9A /* FilteredRoom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +364,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				660628582C32FAC700E36B9A /* FilteredRoom.swift in Sources */,
+				665E11252C3597BC00976DA5 /* HomeView.swift in Sources */,
 				6669F6542C19EF8D00BC7951 /* AngiesHomeUITestsLaunchTests.swift in Sources */,
 				6669F6522C19EF8D00BC7951 /* AngiesHomeUITests.swift in Sources */,
 			);

@@ -8,44 +8,54 @@
 import SwiftUI
 
 struct FacilityList: View {
-    
     @Environment(ModelData.self) var modelData
     
     @State private var showOpenOnly = true
     
-    var filteredFacilities: [Facility] {
-        modelData.facilities.filter {
-            fc in
-            (!showOpenOnly ||  fc.status)
-        }
-    }
-
+    var filteredFacilities: [Facility]
+    
+//    var filteredFacilities: [Facility] {
+//        modelData.facilities.filter {
+//            fc in
+//            !showOpenOnly || fc.status
+//        }
+//    }
     
     var body: some View {
         NavigationSplitView {
-            List {
-                Toggle(isOn: $showOpenOnly) {
-                    Text("Open only")
-                }
-                
-                ForEach(filteredFacilities) {facility in
-                    NavigationLink {
-                        FacilityDetail(facility: facility)
-                    } label: {
-                        FacilityRow(facility: facility)
-                        
+            VStack(alignment: .leading,
+                   spacing: 10)
+            {
+                VStack {
+//                    Toggle(isOn: $showOpenOnly) {
+//                                        Text("Open only")
+//                                    }
+//                                    .padding(.horizontal)
+//                                    .padding(.top) // Add top padding to the Toggle
+                    
+                    ScrollView {
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                            ForEach(filteredFacilities) { facility in
+                                NavigationLink(destination: FacilityDetail(facility: facility)) {
+                                    FacilityRow(facility: facility)
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
                     }
                 }
             }
-            .navigationTitle("AngiesHome")
+//            .navigationTitle("Angie's Home")
             .navigationBarTitleDisplayMode(.inline)
         } detail: {
-                    Text("Select a Landmark")
+            Text("Select a Landmark")
         }
     }
 }
 
+
 #Preview {
-    FacilityList()
+    let facilities = ModelData().rooms.first?.facilities ?? []
+    return FacilityList(filteredFacilities: facilities)
         .environment(ModelData())
 }

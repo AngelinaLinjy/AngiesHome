@@ -12,7 +12,30 @@ struct ContentView: View {
 
     
     var body: some View {
-        FacilityList()
+        TabView {
+                HomeView()
+                   .tabItem {
+                       Text("Home")
+                       Image(systemName: "house.fill")
+                     }
+                   .badge("1")
+            
+                   
+               Text("This is page to set up scenarios")
+                   .tabItem {
+                       Text("Scenarios")
+                       Image(systemName: "figure.walk")
+                   }
+               Text("This is config page")
+                   .tabItem {
+                       Text("Config")
+                       Image(systemName: "gear")
+                   }
+
+        
+        
+        }
+
     }
    
 }

@@ -13,9 +13,18 @@ struct Facility: Hashable, Codable, Identifiable {
     var name: String
     var status: Bool
     var description: String
+    var location: String
     
     private var imageName: String
     var image: Image {
         Image(imageName)
     }
+
+}
+
+
+struct Room: Hashable, Codable, Identifiable  {
+    var id: Int
+    var name: String
+    var facilities: [Facility] = []
 }

@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "tv",
+        "status": true,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque sem, posuere quis velit eget, tempus bibendum nisi. Proin sit amet lectus neque. Nulla ultrices lectus ac ex faucibus tincidunt. Fusce varius risus at ante efficitur ullamcorper. Cras vel faucibus erat. Sed varius vel erat eu dapibus. Vestibulum nec massa aliquet, mollis lectus eget, vulputate neque. \n Vestibulum ornare gravida tincidunt. Nunc vitae dolor auctor ipsum sagittis scelerisque. In aliquam lorem et diam facilisis auctor. Etiam dictum volutpat lectus vel sodales. Proin tortor felis, rhoncus non dolor sit amet, sodales aliquam urna. Nunc finibus erat ut scelerisque iaculis. Nam bibendum sem et purus egestas, id mattis ipsum auctor. Donec rutrum nunc lacinia lacus dictum egestas. Integer hendrerit ligula ut urna tempus, a iaculis orci fringilla. Nam nec egestas magna, nec venenatis dui. In malesuada risus scelerisque, placerat orci at, auctor est. Duis condimentum ex in rutrum maximus. Sed eleifend dolor in porta ullamcorper. Aenean et felis egestas, euismod nulla ut, aliquam ante. Nunc aliquet massa nunc, at porta risus fringilla vitae. \n Suspendisse sit amet sodales lorem. Nullam nec eros tristique tortor sodales pharetra ac sit amet nulla. Pellentesque felis eros, hendrerit in tempus in, posuere eu risus. Etiam justo turpis, tempus ac consequat a, pellentesque id mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus quis dolor a tempus. Nam mollis elit ac neque laoreet, cursus accumsan erat facilisis. Nulla vestibulum libero et magna vehicula, eget venenatis libero condimentum.",
+        "imageName": "tv"
+    },
+    {
+        "id": 2,
+        "name": "AC-room",
+        "status": false,
+        "description": "air conditioner in the room",
+        "imageName": "ac"
+    },
+    {
+        "id": 3,
+        "name": "Door",
+        "status": false,
+        "description": "door",
+        "imageName": "door"
+    },
+    {
+        "id": 4,
+        "name": "CCTV",
+        "status": true,
+        "description": "The security camera",
+        "imageName": "cctv"
+    },
+    {
+        "id": 5,
+        "name": "Light",
+        "status": true,
+        "description": "the light in the living room",
+        "imageName": "light"
+    },
+]
