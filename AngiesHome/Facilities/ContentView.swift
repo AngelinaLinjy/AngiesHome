@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-//    var facilities: [Facility] = load("facilityData.json")
-
     
     var body: some View {
         TabView {
@@ -20,8 +18,7 @@ struct ContentView: View {
                      }
                    .badge("1")
             
-                   
-               Text("This is page to set up scenarios")
+            EditFacilityRoomView()
                    .tabItem {
                        Text("Scenarios")
                        Image(systemName: "figure.walk")

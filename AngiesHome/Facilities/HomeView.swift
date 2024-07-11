@@ -12,15 +12,29 @@ struct HomeView: View {
     
     @State var tabIndex = 0
     
-//    @State private var showOpenOnly = true
+    @FetchRequest(entity: RoomA.entity(), sortDescriptors: []) private var allRoomsA: FetchedResults<RoomA>
+
+    var room: [RoomA] {
+        allRoomsA.filter {
+                rm in
+            rm.id ==  String(tabIndex)
+            }
+    }
     
-    var rooms: [Room]? {
-        modelData.rooms.filter {
-            rm in
-            rm.id == tabIndex + 1
+
+    
+
+    @FetchRequest(entity: FacilityA.entity(), sortDescriptors: []) private var allFacilitiesA: FetchedResults<FacilityA>
+    
+    
+    var facilitiesFilterd: Array<FacilityA> {
+        allFacilitiesA.filter {
+            f in
+            f.room == room.first
         }
     }
-
+    
+    
     var body: some View {
         NavigationSplitView {
             VStack(alignment: .leading,
@@ -40,7 +54,7 @@ struct HomeView: View {
                     
 //                    ScrollView {
 //                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-//                            ForEach(filteredFacilities) { facility in
+//                            ForEach(allFacilitiesA) { facility in
 //                                NavigationLink(destination: FacilityDetail(facility: facility)) {
 //                                    FacilityRow(facility: facility)
 //                                }
@@ -49,10 +63,15 @@ struct HomeView: View {
 //                        }
 //                    }
                     
-                    FacilityList(filteredFacilities: rooms?.first?.facilities ?? [])
+                    if tabIndex != 0 {
+                        FacilityList(filteredFacilities: facilitiesFilterd)
+                    } else {
+//                        FacilityList(filteredFacilities: modelData.facilities)
+                        FacilityList(filteredFacilities: allFacilitiesA)
+                    }
+                    
                 }
             }
-            .navigationTitle("Angie's Home")
             .navigationBarTitleDisplayMode(.inline)
         } detail: {
             Text("Select a Landmark")
@@ -65,15 +84,15 @@ struct CustomTopTabBar: View {
     var rooms: [Room]
     var body: some View {
         HStack(spacing: 20) {
-//            TabBarButton(text: "FirstView", isSelected: .constant(tabIndex == 0))
-//                .onTapGesture { onButtonTapped(index: 0) }
+            TabBarButton(text: "ALL", isSelected: .constant(tabIndex == 0))
+                .onTapGesture { onButtonTapped(index: 0) }
 //            TabBarButton(text: "SecondView", isSelected: .constant(tabIndex == 1))
 //                .onTapGesture { onButtonTapped(index: 1) }
 //            Spacer()
             
-            ForEach(0 ..< rooms.count) { index in
-                TabBarButton(text: rooms[index].name, isSelected: .constant(tabIndex == index))
-                    .onTapGesture { onButtonTapped(index: index) }
+            ForEach(0 ..< rooms.count ) { index in
+                TabBarButton(text: rooms[index].name, isSelected: .constant(tabIndex == index + 1))
+                    .onTapGesture { onButtonTapped(index: index + 1) }
             }
         }
     }
@@ -95,8 +114,8 @@ struct TabBarButton: View {
 //            .border(width: isSelected ? 2 : 1, edges: [.bottom], color: .black)
     }
 }
-
-#Preview {
-    HomeView()
-        .environment(ModelData())
-}
+//
+//#Preview {
+//    HomeView()
+//        .environment(ModelData())
+//}

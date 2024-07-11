@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FilteredRoom: View {
 
-    var filteredFacilitiesList: [Facility]
+    var filteredFacilitiesList: [FacilityA]
     
     var body: some View{
         ScrollView {
@@ -29,9 +29,9 @@ struct FilteredRoom: View {
     
 }
 
-
-#Preview {
-    let facilities = ModelData().facilities
-    return FilteredRoom(filteredFacilitiesList: facilities)
-        .environment(ModelData())
-}
+//
+//#Preview {
+//    let facilities = ModelData().facilities
+//    return FilteredRoom(filteredFacilitiesList: facilities)
+//        .environment(ModelData())
+//}

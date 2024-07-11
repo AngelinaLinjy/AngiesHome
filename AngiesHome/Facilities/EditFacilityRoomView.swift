@@ -1,0 +1,101 @@
+//
+//  AddFacilityAndRoom.swift
+//  AngiesHome
+//
+//  Created by Angelina Lin on 2024/7/9.
+//
+
+import SwiftUI
+
+struct EditFacilityRoomView
+: View {
+
+    @EnvironmentObject var manager: CoreDataStack
+    @Environment(\.managedObjectContext) private var viewContext
+
+//    @Binding var isPresented: Bool
+    @State private var name: String = ""
+    @State private var usage: String = ""
+    @State private var location: String = ""
+    @State private var imageName: String = ""
+    @State private var status: Bool = false
+
+    var body: some View {
+        NavigationView {
+            Form {
+                Section {
+                    TextField("Enter the facility name", text: $name)
+                } header: {
+                    Text("Name")
+                }
+
+                Section {
+                    TextField("Enter the facility usage", text: $usage)
+                } header: {
+                    Text("Usgae")
+                }
+
+                Section {
+                    TextField("Enter the facility location", text: $location)
+                } header: {
+                    Text("Location")
+                }
+
+                Section {
+                    TextField("Enter the facility image name", text: $imageName)
+                } header: {
+                    Text("Image Name")
+                }
+
+                Section {
+                    Picker("Select status", selection: $status) {
+//                                                               ForEach(TodoStatus.allCases, id: \.self) { status in
+//                                                                   Text(status.rawValue)
+//                                                               }
+
+                        Text("False").tag(false)
+                        Text("True").tag(true)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                } header: {
+                    Text("Status")
+                }
+            }
+            .navigationTitle("New Facility")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+//                        isPresented = false
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Save") {
+                        // Save the data and dismiss the sheet
+                        self.saveFacility(name: name, usage: usage, location: location, imageName: imageName,  status: status)
+                        // Call a function to handle saving or further processing of the newTodo
+                        // For example, you can pass it to a delegate or callback.
+//                        isPresented = false
+                    }
+                }
+            }
+        }
+    }
+    
+    // MARK: Core Data Operations
+    func saveFacility(name: String, usage: String, location: String, imageName: String,  status: Bool) {
+        let facility = FacilityA(context: self.viewContext)
+
+        facility.name = name
+        facility.usage = usage
+        facility.location = location
+        facility.imageName = imageName
+        facility.status = status
+        
+        do {
+            try self.viewContext.save()
+            print("Facility saved!")
+        } catch {
+            print("whoops \\(error.localizedDescription)")
+        }
+    }
+}

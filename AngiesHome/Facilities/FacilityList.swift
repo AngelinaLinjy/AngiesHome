@@ -11,8 +11,9 @@ struct FacilityList: View {
     @Environment(ModelData.self) var modelData
     
     @State private var showOpenOnly = true
+
     
-    var filteredFacilities: [Facility]
+    var filteredFacilities: FetchRequest<FacilityA>
     
 //    var filteredFacilities: [Facility] {
 //        modelData.facilities.filter {
@@ -43,19 +44,27 @@ struct FacilityList: View {
                             .padding(.horizontal)
                         }
                     }
+                    
+//                    
+//                    ForEach(filteredFacilities) {
+//                        facility in
+//                        Text(facility.name)
+//                    }
+                    
+                    
                 }
             }
-//            .navigationTitle("Angie's Home")
+            .navigationTitle("Angie's Home")
             .navigationBarTitleDisplayMode(.inline)
         } detail: {
             Text("Select a Landmark")
         }
     }
 }
-
-
-#Preview {
-    let facilities = ModelData().rooms.first?.facilities ?? []
-    return FacilityList(filteredFacilities: facilities)
-        .environment(ModelData())
-}
+//
+//
+//#Preview {
+//    let facilities = ModelData().rooms.first?.facilities ?? []
+//    return FacilityList(filteredFacilities: facilities)
+//        .environment(ModelData())
+//}

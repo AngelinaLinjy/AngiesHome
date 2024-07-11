@@ -13,11 +13,13 @@ struct FacilityRow: View {
     @Environment(ModelData.self) var modelData
 
     @State private var status = true
+    
+    @FetchRequest(entity: FacilityA.entity(), sortDescriptors: []) private var allFacilities: FetchedResults<FacilityA>
 
-    var facility: Facility
+    var facility: FacilityA
 
     var facilityIndex: Int {
-        modelData.facilities.firstIndex(where: { $0.id == facility.id })!
+        allFacilities.firstIndex(where: { $0.id == facility.id })!
     }
 
     var body: some View {
@@ -25,7 +27,7 @@ struct FacilityRow: View {
 
         HStack (alignment: .top) {
             VStack (alignment: .leading, spacing: 5) {
-                facility.image
+                Image(facility.imageName ?? "")
                     .resizable()
                     .frame(width: 30, height: 30)
                 Text(facility.name)
@@ -53,11 +55,11 @@ struct FacilityRow: View {
     }
 }
 
-#Preview {
-    let facilities = ModelData().facilities
-    return Group {
-        FacilityRow(facility: facilities[1])
-        FacilityRow(facility: facilities[0])
-        FacilityRow(facility: facilities[1])
-    }
-}
+//#Preview {
+//    let facilities = ModelData().facilities
+//    return Group {
+//        FacilityRow(facility: facilities[1])
+//        FacilityRow(facility: facilities[0])
+//        FacilityRow(facility: facilities[1])
+//    }
+//}

@@ -3,7 +3,7 @@
 //  AngiesHome
 //
 //  Created by Angelina Lin on 2024/6/13.
-//
+////
 
 import Foundation
 import SwiftUI
@@ -15,10 +15,10 @@ struct Facility: Hashable, Codable, Identifiable {
     var description: String
     var location: String
     
-    private var imageName: String
-    var image: Image {
-        Image(imageName)
-    }
+    var imageName: String
+//    var image: Image {
+//        Image(imageName)
+//    }
 
 }
 
