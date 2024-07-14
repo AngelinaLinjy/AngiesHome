@@ -21,8 +21,6 @@ struct EditFacilityRoomView
         allRoomsA.map{$0.name}
     }
 
-
-//    @Binding var isPresented: Bool
     @State private var name: String = ""
     @State private var usage: String = ""
     @State private var location: String = ""
@@ -81,11 +79,7 @@ struct EditFacilityRoomView
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        // Save the data and dismiss the sheet
                         self.saveFacility(name: name, usage: usage, location: location, imageName: imageName,  status: status)
-                        // Call a function to handle saving or further processing of the newTodo
-                        // For example, you can pass it to a delegate or callback.
-//                        isPresented = false
                     }
                 }
             }

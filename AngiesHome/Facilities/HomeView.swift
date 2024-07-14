@@ -16,23 +16,19 @@ struct HomeView: View {
 
     var room: [RoomA] {
         allRoomsA.filter {
-                rm in
-            rm.id ==  String(tabIndex)
-            }
+            rm in
+            rm.id == String(tabIndex)
+        }
     }
-    
-
     
     @FetchRequest(entity: FacilityA.entity(), sortDescriptors: []) private var allFacilitiesA: FetchedResults<FacilityA>
     
-    
-    var facilitiesFilterd: Array<FacilityA> {
+    var facilitiesFilterd: [FacilityA] {
         allFacilitiesA.filter {
             f in
             f.room == room.first
         }
     }
-    
     
     var body: some View {
         NavigationSplitView {
@@ -45,30 +41,11 @@ struct HomeView: View {
                 }
                 
                 VStack {
-//                    Toggle(isOn: $showOpenOnly) {
-//                                        Text("Open only")
-//                                    }
-//                                    .padding(.horizontal)
-//                                    .padding(.top) // Add top padding to the Toggle
-                    
-//                    ScrollView {
-//                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-//                            ForEach(allFacilitiesA) { facility in
-//                                NavigationLink(destination: FacilityDetail(facility: facility)) {
-//                                    FacilityRow(facility: facility)
-//                                }
-//                            }
-//                            .padding(.horizontal)
-//                        }
-//                    }
-                    
                     if tabIndex != 0 {
                         FacilityList(filteredFacilities: facilitiesFilterd)
                     } else {
-//                        FacilityList(filteredFacilities: modelData.facilities)
                         FetcthedFacilityList(filteredFacilities: allFacilitiesA)
                     }
-                    
                 }
             }
             .navigationTitle("Angie's Home")
@@ -86,10 +63,7 @@ struct CustomTopTabBar: View {
         HStack(spacing: 20) {
             TabBarButton(text: "ALL", isSelected: .constant(tabIndex == 0))
                 .onTapGesture { onButtonTapped(index: 0) }
-//            TabBarButton(text: "SecondView", isSelected: .constant(tabIndex == 1))
-//                .onTapGesture { onButtonTapped(index: 1) }
-//            Spacer()
-            
+
             ForEach(0 ..< rooms.count, id: \.self) { index in
                 TabBarButton(text: rooms[index].name, isSelected: .constant(tabIndex == index + 1))
                     .onTapGesture { onButtonTapped(index: index + 1) }
@@ -110,12 +84,11 @@ struct TabBarButton: View {
             .fontWeight(isSelected ? .heavy : .regular)
             .font(.custom("Avenir", size: 16))
             .padding(.bottom, 10)
-//            .border(ShapeStyle, width: isSelected ? 2 : 1, edges: [.bottom], color: .black)
-//            .border(width: isSelected ? 2 : 1, edges: [.bottom], color: .black)
     }
 }
+
 //
-//#Preview {
+// #Preview {
 //    HomeView()
 //        .environment(ModelData())
-//}
+// }

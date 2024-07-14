@@ -5,7 +5,6 @@
 //  Created by Angelina Lin on 2024/7/14.
 //
 
-
 import SwiftUI
 
 struct FacilityList: View {
@@ -13,10 +12,7 @@ struct FacilityList: View {
     
     @State private var showOpenOnly = true
     
- 
-    
-    var filteredFacilities: Array<FacilityA>
-    
+    var filteredFacilities: [FacilityA]
     
     var body: some View {
         NavigationSplitView {
@@ -34,8 +30,6 @@ struct FacilityList: View {
                             .padding(.horizontal)
                         }
                     }
-                    
-                    
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -44,10 +38,11 @@ struct FacilityList: View {
         }
     }
 }
+
 //
 //
-//#Preview {
+// #Preview {
 //    let facilities = ModelData().rooms.first?.facilities ?? []
 //    return FacilityList(filteredFacilities: facilities)
 //        .environment(ModelData())
-//}
+// }
