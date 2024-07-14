@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FacilityDetail: View {
-    @Environment(ModelData.self) var modelData
     var facility: FacilityA
 
     @FetchRequest(entity: FacilityA.entity(), sortDescriptors: []) private var facilities: FetchedResults<FacilityA>
@@ -18,7 +17,6 @@ struct FacilityDetail: View {
     }
 
     var body: some View {
-        @Bindable var modelData = modelData
 
         ScrollView {
             Image("Living-Room")
@@ -32,7 +30,7 @@ struct FacilityDetail: View {
                 HStack {
                     Text(facility.name)
                         .font(.title)
-                    ToggleButton(isSet: $modelData.facilities[facilityIndex].status)
+                    ToggleButton(facility: facility)
                 }
 
                 HStack {

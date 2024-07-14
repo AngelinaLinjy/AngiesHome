@@ -9,21 +9,42 @@ import SwiftUI
 
 
 struct ToggleButton: View {
-    @Binding var isSet: Bool
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @State private var isToggleOn = false
+    
+   var facility: FacilityA
     
     var body: some View {
-        Button {
-                   isSet.toggle()
-               } label: {
-                   Label("Turn On", systemImage: isSet ? "checkmark.square" : "square")
-                       .labelStyle(.iconOnly)
-                       .foregroundStyle(isSet ? .green : .gray)
-               } 
+        Toggle(isToggleOn ? "Turn Off" : "Turn On", isOn: $isToggleOn)
+               .onChange(of: isToggleOn) {
+                   self.saveStatusChange(facility: facility)
+               }
+    }
+    
+    
+    func saveStatusChange(facility: FacilityA){
+        let fetchedFacility = FacilityA(context: self.viewContext)
+        
+        fetchedFacility.name = facility.name
+        fetchedFacility.usage =  facility.usage
+        fetchedFacility.location =  facility.location
+        fetchedFacility.imageName =  facility.imageName
+        fetchedFacility.status =  !facility.status
+        
+        do {
+            try self.viewContext.save()
+            print("Status Change saved!")
+        } catch {
+            print("whoops \\(error.localizedDescription)")
+        }
     }
 }
 
 
-#Preview {
-    ToggleButton(isSet: .constant(true))
-}
 
+
+//#Preview {
+//    ToggleButton(isSet: .constant(true))
+//}
+//

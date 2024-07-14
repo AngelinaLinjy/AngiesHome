@@ -221,10 +221,10 @@
 				665E11B92C3D7C2D00976DA5 /* EditFacilityRoomView.swift */,
 				665E11C02C43B0FA00976DA5 /* AddRoomView.swift */,
 				6669F6772C1B319600BC7951 /* FetchedFacilityList.swift */,
+				665E11BE2C4383DB00976DA5 /* FacilityList.swift */,
 				660628552C32FAC700E36B9A /* FilteredRoom.swift */,
 				6669F6692C19F32700BC7951 /* FacilityRow.swift */,
 				6669F6792C1B373700BC7951 /* FacilityDetail.swift */,
-				665E11BE2C4383DB00976DA5 /* FacilityList.swift */,
 			);
 			path = Facilities;
 			sourceTree = "<group>";

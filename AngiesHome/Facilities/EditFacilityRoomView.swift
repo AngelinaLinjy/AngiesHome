@@ -65,7 +65,7 @@ struct EditFacilityRoomView
                 }
                 
                 Section {
-                    Picker("Select Rom", selection: $selectedOption) {
+                    Picker("Select Room", selection: $selectedOption) {
                         ForEach(0..<roomNameList.count, id: \.self) { index in
                                         Text(roomNameList[index]).tag(index)
                                     }

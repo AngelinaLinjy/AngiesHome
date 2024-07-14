@@ -9,9 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(ModelData.self) var modelData
-    
+
     @State var tabIndex = 0
-    
+
     @FetchRequest(entity: RoomA.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \RoomA.id, ascending: true)]) private var allRoomsA: FetchedResults<RoomA>
 
     var room: [RoomA] {
@@ -20,16 +20,16 @@ struct HomeView: View {
             rm.id == String(tabIndex)
         }
     }
-    
+
     @FetchRequest(entity: FacilityA.entity(), sortDescriptors: []) private var allFacilitiesA: FetchedResults<FacilityA>
-    
+
     var facilitiesFilterd: [FacilityA] {
         allFacilitiesA.filter {
             f in
             f.room == room.first
         }
     }
-    
+
     var body: some View {
         NavigationSplitView {
             VStack(alignment: .leading,
@@ -39,7 +39,7 @@ struct HomeView: View {
                     CustomTopTabBar(tabIndex: $tabIndex, rooms: allRoomsA)
                         .padding(.leading)
                 }
-                
+
                 VStack {
                     if tabIndex != 0 {
                         FacilityList(filteredFacilities: facilitiesFilterd)
@@ -70,7 +70,7 @@ struct CustomTopTabBar: View {
             }
         }
     }
-    
+
     private func onButtonTapped(index: Int) {
         withAnimation { tabIndex = index }
     }
