@@ -21,7 +21,7 @@ struct FacilityDetail: View {
         @Bindable var modelData = modelData
         
         ScrollView {
-                    Image("living-room")
+                    Image("Living-Room")
                         .frame(height: 400)
 
 
@@ -49,7 +49,7 @@ struct FacilityDetail: View {
 
                         Divider()
 
-                        Text(facility.description)
+                        Text(facility.usage)
                             .font(.title2)
                     }
                     .padding()

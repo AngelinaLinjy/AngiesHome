@@ -2,20 +2,19 @@
 //  FacilityList.swift
 //  AngiesHome
 //
-//  Created by Angelina Lin on 2024/7/14.
+//  Created by Angelina Lin on 2024/6/13.
 //
-
 
 import SwiftUI
 
-struct FacilityList: View {
+struct FetcthedFacilityList: View {
     @Environment(ModelData.self) var modelData
     
     @State private var showOpenOnly = true
     
  
     
-    var filteredFacilities: Array<FacilityA>
+    var filteredFacilities: FetchedResults<FacilityA>
     
     
     var body: some View {

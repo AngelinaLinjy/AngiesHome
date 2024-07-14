@@ -12,7 +12,7 @@ struct HomeView: View {
     
     @State var tabIndex = 0
     
-    @FetchRequest(entity: RoomA.entity(), sortDescriptors: []) private var allRoomsA: FetchedResults<RoomA>
+    @FetchRequest(entity: RoomA.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \RoomA.id, ascending: true)]) private var allRoomsA: FetchedResults<RoomA>
 
     var room: [RoomA] {
         allRoomsA.filter {
@@ -67,7 +67,7 @@ struct HomeView: View {
                         FacilityList(filteredFacilities: facilitiesFilterd)
                     } else {
 //                        FacilityList(filteredFacilities: modelData.facilities)
-                        FacilityList(filteredFacilities: allFacilitiesA)
+                        FetcthedFacilityList(filteredFacilities: allFacilitiesA)
                     }
                     
                 }
