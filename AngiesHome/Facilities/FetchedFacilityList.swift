@@ -12,10 +12,7 @@ struct FetcthedFacilityList: View {
     
     @State private var showOpenOnly = true
     
- 
-    
     var filteredFacilities: FetchedResults<FacilityA>
-    
     
     var body: some View {
         NavigationSplitView {
@@ -33,8 +30,6 @@ struct FetcthedFacilityList: View {
                             .padding(.horizontal)
                         }
                     }
-                    
-                    
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -43,10 +38,11 @@ struct FetcthedFacilityList: View {
         }
     }
 }
+
 //
 //
-//#Preview {
+// #Preview {
 //    let facilities = ModelData().rooms.first?.facilities ?? []
 //    return FacilityList(filteredFacilities: facilities)
 //        .environment(ModelData())
-//}
+// }

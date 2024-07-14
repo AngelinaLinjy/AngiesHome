@@ -12,6 +12,15 @@ struct EditFacilityRoomView
 
     @EnvironmentObject var manager: CoreDataStack
     @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(entity: RoomA.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \RoomA.id, ascending: true)]) private var allRoomsA: FetchedResults<RoomA>
+    
+    @State private var selectedOption = 0
+    
+    var roomNameList: [String] {
+        allRoomsA.map{$0.name}
+    }
+
 
 //    @Binding var isPresented: Bool
     @State private var name: String = ""
@@ -49,10 +58,6 @@ struct EditFacilityRoomView
 
                 Section {
                     Picker("Select status", selection: $status) {
-//                                                               ForEach(TodoStatus.allCases, id: \.self) { status in
-//                                                                   Text(status.rawValue)
-//                                                               }
-
                         Text("False").tag(false)
                         Text("True").tag(true)
                     }
@@ -60,14 +65,20 @@ struct EditFacilityRoomView
                 } header: {
                     Text("Status")
                 }
+                
+                Section {
+                    Picker("Select Rom", selection: $selectedOption) {
+                        ForEach(0..<roomNameList.count, id: \.self) { index in
+                                        Text(roomNameList[index]).tag(index)
+                                    }
+                    }
+
+                } header: {
+                    Text("Status")
+                }
             }
             .navigationTitle("New Facility")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-//                        isPresented = false
-                    }
-                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
                         // Save the data and dismiss the sheet
@@ -98,4 +109,8 @@ struct EditFacilityRoomView
             print("whoops \\(error.localizedDescription)")
         }
     }
+    
+    
+    
+
 }

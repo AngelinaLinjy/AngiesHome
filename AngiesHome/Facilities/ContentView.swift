@@ -20,17 +20,17 @@ struct ContentView: View {
             
             EditFacilityRoomView()
                    .tabItem {
-                       Text("Scenarios")
+                       Text("Add New Facility")
                        Image(systemName: "figure.walk")
                    }
-               Text("This is config page")
+            AddRoomView()
                    .tabItem {
-                       Text("Config")
-                       Image(systemName: "gear")
+                       Text("Add New Room")
+                       Image(systemName: "house.fill")
                    }
 
         
-        
+            
         }
 
     }

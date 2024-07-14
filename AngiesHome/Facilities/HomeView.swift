@@ -23,7 +23,6 @@ struct HomeView: View {
     
 
     
-
     @FetchRequest(entity: FacilityA.entity(), sortDescriptors: []) private var allFacilitiesA: FetchedResults<FacilityA>
     
     
@@ -41,7 +40,7 @@ struct HomeView: View {
                    spacing: 10)
             {
                 VStack {
-                    CustomTopTabBar(tabIndex: $tabIndex, rooms: modelData.rooms)
+                    CustomTopTabBar(tabIndex: $tabIndex, rooms: allRoomsA)
                         .padding(.leading)
                 }
                 
@@ -72,6 +71,7 @@ struct HomeView: View {
                     
                 }
             }
+            .navigationTitle("Angie's Home")
             .navigationBarTitleDisplayMode(.inline)
         } detail: {
             Text("Select a Landmark")
@@ -81,7 +81,7 @@ struct HomeView: View {
 
 struct CustomTopTabBar: View {
     @Binding var tabIndex: Int
-    var rooms: [Room]
+    var rooms: FetchedResults<RoomA>
     var body: some View {
         HStack(spacing: 20) {
             TabBarButton(text: "ALL", isSelected: .constant(tabIndex == 0))
@@ -90,7 +90,7 @@ struct CustomTopTabBar: View {
 //                .onTapGesture { onButtonTapped(index: 1) }
 //            Spacer()
             
-            ForEach(0 ..< rooms.count ) { index in
+            ForEach(0 ..< rooms.count, id: \.self) { index in
                 TabBarButton(text: rooms[index].name, isSelected: .constant(tabIndex == index + 1))
                     .onTapGesture { onButtonTapped(index: index + 1) }
             }

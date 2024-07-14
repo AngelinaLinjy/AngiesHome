@@ -25,6 +25,7 @@
 		665E11BA2C3D7C2D00976DA5 /* EditFacilityRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E11B92C3D7C2D00976DA5 /* EditFacilityRoomView.swift */; };
 		665E11BD2C40156300976DA5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E11BC2C40156300976DA5 /* CoreDataManager.swift */; };
 		665E11BF2C4383DB00976DA5 /* FacilityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E11BE2C4383DB00976DA5 /* FacilityList.swift */; };
+		665E11C12C43B0FA00976DA5 /* AddRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E11C02C43B0FA00976DA5 /* AddRoomView.swift */; };
 		6669F6372C19EF8B00BC7951 /* AngiesHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6669F6362C19EF8B00BC7951 /* AngiesHomeApp.swift */; };
 		6669F6392C19EF8B00BC7951 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6669F6382C19EF8B00BC7951 /* ContentView.swift */; };
 		6669F63B2C19EF8D00BC7951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6669F63A2C19EF8D00BC7951 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		665E11B92C3D7C2D00976DA5 /* EditFacilityRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFacilityRoomView.swift; sourceTree = "<group>"; };
 		665E11BC2C40156300976DA5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		665E11BE2C4383DB00976DA5 /* FacilityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityList.swift; sourceTree = "<group>"; };
+		665E11C02C43B0FA00976DA5 /* AddRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomView.swift; sourceTree = "<group>"; };
 		6669F6332C19EF8B00BC7951 /* AngiesHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngiesHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6669F6362C19EF8B00BC7951 /* AngiesHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngiesHomeApp.swift; sourceTree = "<group>"; };
 		6669F6382C19EF8B00BC7951 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				6669F6382C19EF8B00BC7951 /* ContentView.swift */,
 				665E11222C3597BC00976DA5 /* HomeView.swift */,
 				665E11B92C3D7C2D00976DA5 /* EditFacilityRoomView.swift */,
+				665E11C02C43B0FA00976DA5 /* AddRoomView.swift */,
 				6669F6772C1B319600BC7951 /* FetchedFacilityList.swift */,
 				660628552C32FAC700E36B9A /* FilteredRoom.swift */,
 				6669F6692C19F32700BC7951 /* FacilityRow.swift */,
@@ -383,6 +386,7 @@
 				6669F66A2C19F32700BC7951 /* FacilityRow.swift in Sources */,
 				6669F67A2C1B373700BC7951 /* FacilityDetail.swift in Sources */,
 				6669F6722C1B293500BC7951 /* Facility.swift in Sources */,
+				665E11C12C43B0FA00976DA5 /* AddRoomView.swift in Sources */,
 				665E11BF2C4383DB00976DA5 /* FacilityList.swift in Sources */,
 				6669F6782C1B319600BC7951 /* FetchedFacilityList.swift in Sources */,
 				665E11922C3D6D4C00976DA5 /* FacilityModel.xcdatamodeld in Sources */,
