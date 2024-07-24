@@ -10,7 +10,7 @@ import SwiftUI
 struct AddRoomView:
     View
 {
-    @EnvironmentObject var manager: CoreDataStack
+    @EnvironmentObject var manager: CoreDataManager
     @Environment(\.managedObjectContext) private var viewContext
 
     @State private var name: String = ""

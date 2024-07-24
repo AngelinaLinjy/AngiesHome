@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FetcthedFacilityList: View {
-    @Environment(ModelData.self) var modelData
+//    @Environment(ModelData.self) var modelData
     
     @State private var showOpenOnly = true
     
@@ -22,7 +22,7 @@ struct FetcthedFacilityList: View {
                 VStack {
                     ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                            ForEach(filteredFacilities) { facility in
+                            ForEach(filteredFacilities, id: \.self) { facility in
                                 NavigationLink(destination: FacilityDetail(facility: facility)) {
                                     FacilityRow(facility: facility)
                                 }

@@ -2,7 +2,7 @@
 //  RoomA+CoreDataProperties.swift
 //  AngiesHome
 //
-//  Created by Angelina Lin on 2024/7/11.
+//  Created by Angelina Lin on 2024/7/24.
 //
 //
 
@@ -18,7 +18,7 @@ extension RoomA {
 
     @NSManaged public var id: String
     @NSManaged public var name: String
-    @NSManaged public var facilities: [FacilityA]
+    @NSManaged public var facilities: NSSet
 
 }
 

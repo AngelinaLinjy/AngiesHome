@@ -30,7 +30,7 @@ struct FacilityDetail: View {
                 HStack {
                     Text(facility.name)
                         .font(.title)
-                    ToggleButton(facility: facility)
+                    ToggleButton( isToggleOn: facility.status, facility: facility)
                 }
 
                 HStack {

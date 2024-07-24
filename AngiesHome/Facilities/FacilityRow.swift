@@ -10,7 +10,7 @@ import SwiftUI
 var facility: [Facility] = load("facilityData.json")
 
 struct FacilityRow: View {
-    @Environment(ModelData.self) var modelData
+//    @Environment(ModelData.self) var modelData
 
     @State private var status = true
     
@@ -23,7 +23,7 @@ struct FacilityRow: View {
     }
 
     var body: some View {
-        @Bindable var modelData = modelData
+//        @Bindable var modelData = modelData
 
         HStack (alignment: .top) {
             VStack (alignment: .leading, spacing: 5) {
@@ -32,8 +32,8 @@ struct FacilityRow: View {
                     .frame(width: 30, height: 30)
                 Text(facility.name)
                     .foregroundStyle(.black)
-                Text(facility.location)
-                    .foregroundStyle(.gray)
+//                Text(facility.location)
+//                    .foregroundStyle(.gray)
             }
             
             Spacer()

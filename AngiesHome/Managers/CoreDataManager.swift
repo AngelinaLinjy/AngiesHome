@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+class CoreDataManager: ObservableObject {
     
     let persistenContainer: NSPersistentContainer
     static let shared: CoreDataManager = CoreDataManager()
@@ -23,6 +23,4 @@ class CoreDataManager {
             }
         }
     }
-    
-    
 }

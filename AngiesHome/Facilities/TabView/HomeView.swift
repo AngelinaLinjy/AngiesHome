@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Environment(ModelData.self) var modelData
+//    @Environment(ModelData.self) var modelData
 
     @State var tabIndex = 0
 
@@ -59,6 +59,7 @@ struct HomeView: View {
 struct CustomTopTabBar: View {
     @Binding var tabIndex: Int
     var rooms: FetchedResults<RoomA>
+    
     var body: some View {
         HStack(spacing: 20) {
             TabBarButton(text: "ALL", isSelected: .constant(tabIndex == 0))

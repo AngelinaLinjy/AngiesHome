@@ -10,20 +10,23 @@ import SwiftUI
 struct EditFacilityRoomView
 : View {
 
-    @EnvironmentObject var manager: CoreDataStack
+    @EnvironmentObject var manager: CoreDataManager
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(entity: RoomA.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \RoomA.id, ascending: true)]) private var allRoomsA: FetchedResults<RoomA>
     
-    @State private var selectedOption = 0
+    @State private var selectedOption = ""
     
     var roomNameList: [String] {
         allRoomsA.map{$0.name}
     }
+    
+    func findRoomByName(_ name: String) -> RoomA? {
+        return allRoomsA.first { $0.name == name }
+    }
 
     @State private var name: String = ""
     @State private var usage: String = ""
-    @State private var location: String = ""
     @State private var imageName: String = ""
     @State private var status: Bool = false
 
@@ -42,11 +45,6 @@ struct EditFacilityRoomView
                     Text("Usgae")
                 }
 
-                Section {
-                    TextField("Enter the facility location", text: $location)
-                } header: {
-                    Text("Location")
-                }
 
                 Section {
                     TextField("Enter the facility image name", text: $imageName)
@@ -67,19 +65,19 @@ struct EditFacilityRoomView
                 Section {
                     Picker("Select Room", selection: $selectedOption) {
                         ForEach(0..<roomNameList.count, id: \.self) { index in
-                                        Text(roomNameList[index]).tag(index)
+                                        Text(roomNameList[index]).tag(roomNameList[index])
                                     }
                     }
 
                 } header: {
-                    Text("Status")
+                    Text("Room")
                 }
             }
             .navigationTitle("New Facility")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        self.saveFacility(name: name, usage: usage, location: location, imageName: imageName,  status: status)
+                        self.saveFacility(name: name, usage: usage, imageName: imageName,  status: status, room: findRoomByName(selectedOption))
                     }
                 }
             }
@@ -87,12 +85,12 @@ struct EditFacilityRoomView
     }
     
     // MARK: Core Data Operations
-    func saveFacility(name: String, usage: String, location: String, imageName: String,  status: Bool) {
+    func saveFacility(name: String, usage: String, imageName: String,  status: Bool, room: RoomA?) {
         let facility = FacilityA(context: self.viewContext)
 
         facility.name = name
         facility.usage = usage
-        facility.location = location
+        facility.room = room
         facility.imageName = imageName
         facility.status = status
         

@@ -13,7 +13,7 @@ struct Facility: Hashable, Codable, Identifiable {
     var name: String
     var status: Bool
     var description: String
-    var location: String
+//    var location: String
     
     var imageName: String
 //    var image: Image {

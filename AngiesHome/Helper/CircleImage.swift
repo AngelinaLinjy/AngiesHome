@@ -19,7 +19,7 @@ struct CircleImage: View {
             .shadow(radius: 7)
     }
 }
-
-#Preview {
-    CircleImage(image: Image("room"))
-}
+//
+//#Preview {
+//    CircleImage(image: Image("room"))
+//}

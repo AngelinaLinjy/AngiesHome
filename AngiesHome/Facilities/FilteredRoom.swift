@@ -15,8 +15,7 @@ struct FilteredRoom: View {
     var body: some View{
         ScrollView {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                
-                ForEach(filteredFacilitiesList) { facility in
+                ForEach(filteredFacilitiesList, id: \.id) { facility in
                     NavigationLink(destination: FacilityDetail(facility: facility)) {
                         FacilityRow(facility: facility)
                     }

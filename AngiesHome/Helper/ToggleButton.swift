@@ -7,31 +7,32 @@
 
 import SwiftUI
 
-
 struct ToggleButton: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @State private var isToggleOn = false
-    
-   var facility: FacilityA
-    
-    var body: some View {
-        Toggle(isToggleOn ? "Turn Off" : "Turn On", isOn: $isToggleOn)
-               .onChange(of: isToggleOn) {
-                   self.saveStatusChange(facility: facility)
-               }
+    @State private var isToggleOn: Bool
+
+    var facility: FacilityA
+
+    init(isToggleOn: Bool, facility: FacilityA) {
+        self.isToggleOn = facility.status
+        self.facility = facility
     }
-    
-    
-    func saveStatusChange(facility: FacilityA){
-        let fetchedFacility = FacilityA(context: self.viewContext)
-        
-        fetchedFacility.name = facility.name
-        fetchedFacility.usage =  facility.usage
-        fetchedFacility.location =  facility.location
-        fetchedFacility.imageName =  facility.imageName
-        fetchedFacility.status =  !facility.status
-        
+
+    var body: some View {
+        Toggle(self.isToggleOn ? "Turn Off" : "Turn On", isOn: self.$isToggleOn)
+            .onChange(of: self.isToggleOn) {
+                self.saveStatusChange(facility: self.facility)
+            }
+    }
+
+    func saveStatusChange(facility: FacilityA) {
+
+//        facility.name = facility.name
+//        facility.usage = facility.usage
+//        facility.imageName = facility.imageName
+        facility.status = !facility.status
+
         do {
             try self.viewContext.save()
             print("Status Change saved!")
@@ -41,10 +42,6 @@ struct ToggleButton: View {
     }
 }
 
-
-
-
-//#Preview {
-//    ToggleButton(isSet: .constant(true))
-//}
-//
+// #Preview {
+//    ToggleButton(isToggleOn: true, facility: )
+// }
